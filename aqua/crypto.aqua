@@ -1,0 +1,11 @@
+module Crypto declares *
+
+data Ed25519KeyPair:
+  pk: string
+  sk: string
+
+service Crypto("crypto"):
+  generate_keypair() -> Ed25519KeyPair
+  get_public_key_type(public_key: string) -> string
+  sign(message: string, private_key: string) -> string
+  verify(public_key: string, signature: string, message: string, enc: string) -> bool

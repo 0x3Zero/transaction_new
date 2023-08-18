@@ -1,0 +1,21 @@
+[package]
+name = "transaction"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[[bin]]
+name = "transaction"
+path = "src/main.rs"
+
+[dependencies]
+marine-rs-sdk = { version = "0.7.1", features = ["logger"] }
+eyre = "0.6.5"
+log = "0.4.14"
+serde = "1.0.152"
+serde_json = "1.0.91"
+thiserror = "1.0.38"
+fstrings = "0.2.3"
+sha2 = "0.10.6"
+bs58 = "0.4.0"
+types = { path = "../types" }

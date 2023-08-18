@@ -1,0 +1,6 @@
+[workspace]
+members = [
+    "crypto",
+    "ipfsdag",
+    "transaction",
+]

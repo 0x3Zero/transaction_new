@@ -1,0 +1,27 @@
+module IpfsDag declares *
+
+data IpfsDagGetResult:
+  success: bool
+  error: string
+  block: string
+
+data IpfsDagPutResult:
+  success: bool
+  error: string
+  cid: string
+
+data IpfsGetResult:
+  success: bool
+  error: string
+  block: []u8
+
+data IpfsPutResult:
+  success: bool
+  error: string
+  cid: string
+
+service IpfsDag("ipfsdag"):
+  get_contract(cid: string, api_multiaddr: string, timeout_sec: u64) -> IpfsGetResult
+  get_ipld(hash: string, api_multiaddr: string, timeout_sec: u64) -> IpfsDagGetResult
+  put_contract(content: string, api_multiaddr: string, timeout_sec: u64) -> IpfsPutResult
+  put_ipld(content: string, previous_cid: string, transaction: string, api_multiaddr: string, timeout_sec: u64) -> IpfsDagPutResult

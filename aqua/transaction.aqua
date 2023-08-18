@@ -1,0 +1,28 @@
+module Transaction declares *
+
+data FdbResult:
+  transaction_hash: string
+
+data TransactionRequest:
+  program_id: string
+  alias: string
+  public_key: string
+  signature: string
+  data: string
+  method: string
+  chain_id: string
+  token_address: string
+  token_id: string
+  version: string
+  mcdata: string
+
+data TrieResult:
+  success: bool
+  result: string
+
+service Transaction("transaction"):
+  get_tx() -> TrieResult
+  publish(tx_request: TransactionRequest) -> FdbResult
+  publish_batch(txs: []TransactionRequest) -> []FdbResult
+  test_filter() -> TrieResult
+  test_print()  
